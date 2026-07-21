@@ -16,8 +16,8 @@ venv/
 env/
 ENV/
 
-# YOLO model weights (large binary files)
-*.pt
+# YOLO model weights - tracked via git
+# *.pt  (enabled - models are committed to repo)
 *.pth
 *.onnx
 *.torchscript
