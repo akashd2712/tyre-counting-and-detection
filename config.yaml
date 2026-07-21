@@ -1,0 +1,67 @@
+model:
+  path: runs/detect/models/tyre_multiclass/weights/best.pt
+  fallback_path: yolo11n.pt
+  conf: 0.35
+  imgsz: 640
+  device: '0'
+source:
+  input: A:/videos
+  output: output/tyre_counting.mp4
+  show_window: false
+  loop: true
+  extensions:
+  - .mov
+  - .mp4
+  - .avi
+roi:
+  enabled: false
+auto_zone_from_vehicle: true
+gate_width_ratio: 0.4
+no_vehicle_patience: 30
+counting:
+  entry_direction: down
+  min_movement_px: 1
+  velocity_threshold: 0.5
+  trajectory_len: 8
+  buffer_zone_px: 10
+  confidence_threshold: 40
+  spatial_dedup_px: 15
+  spatial_dedup_frames: 10
+  min_box_area_ratio: 0.0005
+  max_box_area_ratio: 0.2
+  cooldown_frames: 6
+  stationary_suppress_frames: 10
+  initial_inventory: 0
+entrance_zone:
+  enabled: true
+  line_ratio: 0.1
+  line_orientation: vertical
+tracking:
+  enabled: true
+  persist: true
+  tracker: custom_bytetrack.yaml
+  iou: 0.5
+  conf: 0.25
+homography:
+  enabled: false
+  matrix:
+  - - 0.3358062266112815
+    - -0.0030252813208222953
+    - -5.938627232774292
+  - - 0.002134889628291806
+    - 0.6340622196026584
+    - -22.230605699402346
+  - - -1.0563488072665486e-07
+    - -1.559126466282188e-05
+    - 1.0
+  src_points:
+  - - 18.0
+    - 35.0
+  - - 1503.0
+    - 30.0
+  - - 1492.0
+    - 807.0
+  - - 25.0
+    - 812.0
+  map_width: 500
+  map_height: 500

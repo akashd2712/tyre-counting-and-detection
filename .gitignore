@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# YOLO model weights (large binary files)
+*.pt
+*.pth
+*.onnx
+*.torchscript
+
+# Dataset & output (large directories)
+dataset/
+output/
+runs/
+labels/
+counting/
+
+# Videos & images (uncomment if needed)
+# *.mp4
+# *.avi
+# *.jpg
+# *.jpeg
+# *.png
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints/

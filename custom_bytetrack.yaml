@@ -1,0 +1,21 @@
+# Custom ByteTrack configuration — optimised for warehouse tyre counting
+# Key change vs default: track_buffer raised from 30 → 60 so occlusions
+# (workers stepping in front of a tyre) don't break track IDs.
+
+tracker_type: bytetrack
+
+# Detection thresholds
+track_high_thresh: 0.50   # high-confidence detections form new tracks immediately
+track_low_thresh:  0.10   # low-confidence detections can be matched to existing tracks
+new_track_thresh:  0.55   # minimum score to start a brand new track
+
+# Occlusion tolerance — how many frames a track survives without a match
+# Default is 30; raise to 60 to handle workers walking in front of tyres
+track_buffer: 60
+
+# IoU matching threshold between predicted and detected bboxes
+match_thresh: 0.80
+
+# Frame rate (used internally for Kalman filter velocity)
+# Will be overridden automatically by Ultralytics
+fuse_score: true
